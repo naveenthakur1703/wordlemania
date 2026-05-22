@@ -528,27 +528,87 @@ export default function Home() {
           </div>
         ))}
       </div>
-      <section className="max-w-3xl mx-auto px-4 py-10 text-center text-gray-300">
-        <h2 className="text-2xl font-bold mb-4">
+      <section className="max-w-4xl mx-auto px-4 py-12 text-gray-300">
+
+        <h2 className="text-3xl font-bold text-center mb-6">
           Play Wordle Unlimited Online
         </h2>
 
-        <p className="mb-4">
+        <p className="mb-6 text-lg leading-8 text-center">
           WordleMania is a free Wordle Unlimited game where you can play unlimited
-          word puzzles online. Guess 5-letter words, improve your vocabulary,
-          maintain your streak, and enjoy endless Wordle-style challenges anytime.
+          word puzzles online anytime. Guess 5-letter words, improve your
+          vocabulary, maintain your winning streak, and challenge yourself with
+          endless Wordle-style puzzles without waiting for the next day.
         </p>
 
-        <p className="mb-4">
-          Unlike the classic daily Wordle game, Wordle Unlimited lets you continue
-          playing as many puzzles as you want without waiting for the next day.
-        </p>
-
-        <p>
-          If you enjoy word puzzle games, daily word challenges, and vocabulary
-          games, WordleMania offers one of the best unlimited word game experiences
+        <p className="mb-6 leading-8">
+          Unlike the classic daily Wordle game, Wordle Unlimited allows players to
+          continue solving new puzzles as many times as they want. Whether you are a
+          beginner learning new words or a puzzle expert looking for a challenge,
+          WordleMania provides one of the best unlimited word game experiences
           online for free.
         </p>
+
+        <h3 className="text-2xl font-bold mt-10 mb-4">
+          What is Wordle Unlimited?
+        </h3>
+
+        <p className="mb-6 leading-8">
+          Wordle Unlimited is an online word guessing game inspired by the famous
+          Wordle puzzle format. Players have six attempts to guess a hidden
+          5-letter word. After every guess, tile colors help reveal whether letters
+          are correct, misplaced, or not included in the word.
+        </p>
+
+        <p className="mb-6 leading-8">
+          Green tiles indicate correct letters in the correct position, yellow tiles
+          show correct letters placed in the wrong position, and gray tiles indicate
+          letters that are not part of the hidden word. This simple yet addictive
+          gameplay makes Wordle Unlimited one of the most popular online word puzzle
+          games.
+        </p>
+
+        <h3 className="text-2xl font-bold mt-10 mb-4">
+          Why Play WordleMania?
+        </h3>
+
+        <ul className="list-disc pl-6 space-y-3 mb-8 leading-8">
+          <li>Play unlimited Wordle games online for free</li>
+          <li>Improve vocabulary and spelling skills</li>
+          <li>Track your streaks and game statistics</li>
+          <li>Mobile-friendly and fast gameplay experience</li>
+          <li>Share scores with friends instantly</li>
+          <li>No downloads or signup required</li>
+          <li>Enjoy endless 5-letter word puzzles anytime</li>
+        </ul>
+
+        <h3 className="text-2xl font-bold mt-10 mb-4">
+          Unlimited Word Puzzle Fun
+        </h3>
+
+        <p className="mb-6 leading-8">
+          If you enjoy word puzzle games, daily word challenges, vocabulary games,
+          and brain-training activities, WordleMania offers an engaging experience
+          that keeps players coming back every day. The game is designed to be fast,
+          responsive, and enjoyable on both desktop and mobile devices.
+        </p>
+
+        <p className="mb-6 leading-8">
+          Whether you want to casually play a quick word game or spend hours solving
+          unlimited puzzles, Wordle Unlimited provides endless entertainment for
+          players of all ages.
+        </p>
+
+        <h3 className="text-2xl font-bold mt-10 mb-4">
+          Start Playing Wordle Unlimited Now
+        </h3>
+
+        <p className="leading-8">
+          Start playing Wordle Unlimited online for free with WordleMania today.
+          Challenge your brain, guess hidden words, improve your vocabulary, and
+          enjoy one of the best online word puzzle games available.
+        </p>
+
       </section>
     </main>
   );
