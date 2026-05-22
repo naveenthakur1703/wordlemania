@@ -14,9 +14,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "WordleMania - Play Unlimited Wordle Online",
+  title: "Wordle Unlimited - Play Unlimited Word Games Online | WordleMania",
   description:
-    "Play unlimited Wordle games online for free. Guess 5-letter words, track streaks, and challenge yourself daily.",
+    "Play Wordle Unlimited online for free. Guess unlimited 5-letter words, track your streaks, and enjoy the best unlimited word puzzle game experience with WordleMania.",
+  openGraph: {
+    title: "Wordle Unlimited - Play Unlimited Word Games Online",
+    description:
+      "Play unlimited Wordle games online for free with WordleMania.",
+    url: "https://wordlemania.online",
+    siteName: "WordleMania",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

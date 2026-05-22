@@ -337,7 +337,7 @@ export default function Home() {
       {/* Header */}
       <div className="w-full border-b border-gray-700 py-4 text-center">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-widest">
-          WordleMania
+          Wordle Unlimited
         </h1>
       </div>
 
@@ -528,67 +528,27 @@ export default function Home() {
           </div>
         ))}
       </div>
-      <section className="max-w-4xl mx-auto px-6 py-16 text-gray-300">
-
-        <h2 className="text-3xl font-bold text-white mb-6">
-          Play Unlimited Wordle Online
+      <section className="max-w-3xl mx-auto px-4 py-10 text-center text-gray-300">
+        <h2 className="text-2xl font-bold mb-4">
+          Play Wordle Unlimited Online
         </h2>
 
-        <p className="mb-6 leading-8">
-          WordleMania is a free unlimited word puzzle game
-          where players guess hidden 5-letter words in six
-          attempts. Play unlimited Wordle games online,
-          improve your vocabulary, and challenge yourself
-          with thousands of real English words.
+        <p className="mb-4">
+          WordleMania is a free Wordle Unlimited game where you can play unlimited
+          word puzzles online. Guess 5-letter words, improve your vocabulary,
+          maintain your streak, and enjoy endless Wordle-style challenges anytime.
         </p>
 
-        <h2 className="text-3xl font-bold text-white mb-6 mt-12">
-          How To Play
-        </h2>
+        <p className="mb-4">
+          Unlike the classic daily Wordle game, Wordle Unlimited lets you continue
+          playing as many puzzles as you want without waiting for the next day.
+        </p>
 
-        <ul className="space-y-4 list-disc pl-6">
-          <li>
-            Guess the hidden 5-letter word in six tries.
-          </li>
-
-          <li>
-            Green tiles mean the letter is in the correct
-            position.
-          </li>
-
-          <li>
-            Yellow tiles mean the letter exists but is in
-            the wrong position.
-          </li>
-
-          <li>
-            Gray tiles mean the letter is not in the word.
-          </li>
-
-          <li>
-            Use keyboard hints and streaks to improve your
-            performance.
-          </li>
-        </ul>
-
-        <h2 className="text-3xl font-bold text-white mb-6 mt-12">
-          Features
-        </h2>
-
-        <ul className="space-y-4 list-disc pl-6">
-          <li>Unlimited Wordle gameplay</li>
-
-          <li>12,000+ real English words</li>
-
-          <li>Daily challenge mode</li>
-
-          <li>Win streak tracking</li>
-
-          <li>Share score feature</li>
-
-          <li>Mobile-friendly design</li>
-        </ul>
-
+        <p>
+          If you enjoy word puzzle games, daily word challenges, and vocabulary
+          games, WordleMania offers one of the best unlimited word game experiences
+          online for free.
+        </p>
       </section>
     </main>
   );
