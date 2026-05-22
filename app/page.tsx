@@ -2,11 +2,11 @@
 
 "use client";
 
+
 import { useEffect, useState } from "react";
 import SECRET_WORDS from "./secretWords";
 import VALID_WORDS from "./validWords";
 import Confetti from "react-confetti";
-
 
 export default function Home() {
   const ROWS = 6;
@@ -39,6 +39,16 @@ export default function Home() {
   const [streak, setStreak] = useState(0);
   const [bestStreak, setBestStreak] = useState(0);
   const [showConfetti, setShowConfetti] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+  }, [darkMode]);
 
 
   useEffect(() => {
@@ -139,7 +149,7 @@ export default function Home() {
           updatedKeyColors[letter] !== "bg-green-600" &&
           updatedKeyColors[letter] !== "bg-yellow-500"
         ) {
-          updatedKeyColors[letter] = "bg-gray-700";
+          updatedKeyColors[letter] = "bg-gray-500 dark:bg-gray-700";
         }
       }
     }
@@ -253,9 +263,14 @@ export default function Home() {
   const getTileColor = (color: string) => {
     if (color === "green") return "bg-green-600 border-green-600";
     if (color === "yellow") return "bg-yellow-500 border-yellow-500";
-    if (color === "gray") return "bg-gray-700 border-gray-700";
+    if (color === "gray")
+      return darkMode
+        ? "bg-gray-700 border-gray-700 text-white"
+        : "bg-gray-300 border-gray-300 text-black";
 
-    return "border-gray-600";
+    return darkMode
+      ? "border-gray-600"
+      : "border-gray-400";
   };
   const shareScore = async () => {
     let result = `WordleMania ${currentRow + 1}/6\n\n`;
@@ -324,28 +339,65 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen w-full overflow-x-hidden bg-[#121213] text-white flex flex-col items-center">
 
+    <main
+      className={`min-h-screen w-full overflow-x-hidden flex flex-col items-center transition-colors duration-300 ${darkMode
+        ? "bg-[#121213] text-white"
+        : "bg-white text-black"
+        }`}
+    >
       {/* Toast */}
       {toast && (
-        <div className="fixed top-6 bg-white text-black px-6 py-4 rounded-xl shadow-2xl z-50 font-semibold">
+        <div
+          className={`fixed top-6 px-6 py-4 rounded-xl shadow-2xl z-50 font-semibold transition-all ${darkMode
+            ? "bg-white text-black"
+            : "bg-black text-white"
+            }`}
+        >
           {toast}
         </div>
       )}
       {showConfetti && <Confetti />}
 
       {/* Header */}
-      <div className="w-full border-b border-gray-700 py-4 text-center">
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-widest">
+      <div
+        className={`w-full border-b py-4 text-center ${darkMode ? "border-gray-700" : "border-gray-300"
+          }`}
+      >
+        <h1
+          className={`text-3xl sm:text-4xl font-bold tracking-widest ${darkMode ? "text-white" : "text-black"
+            }`}
+        >
           Wordle Unlimited
         </h1>
+        <button
+          onClick={() => setDarkMode(!darkMode)}
+          className={`absolute top-3 right-3 sm:top-4 sm:right-4
+          w-11 h-11 sm:w-12 sm:h-12
+          rounded-xl
+          flex items-center justify-center
+          text-lg
+          shadow-lg
+          transition-all duration-300
+          ${darkMode
+              ? "bg-gray-700 text-yellow-300"
+              : "bg-gray-200 text-black"
+            }`}
+        >
+          {darkMode ? "☀️" : "🌙"}
+        </button>
       </div>
 
       {/* Game Over Popup */}
       {gameOver && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
 
-          <div className="bg-[#121213] border border-gray-700 rounded-2xl p-5 sm:p-8 w-[90%] max-w-md text-center shadow-2xl">
+          <div
+            className={`rounded-2xl p-5 sm:p-8 w-[90%] max-w-md text-center shadow-2xl border transition-all ${darkMode
+              ? "bg-[#121213] border-gray-700 text-white"
+              : "bg-white border-gray-300 text-black"
+              }`}
+          >
 
             <h2 className="text-2xl sm:text-3xl font-bold mb-2">
               {message}
@@ -355,58 +407,84 @@ export default function Home() {
               Thanks for playing
             </p>
 
-            <div className="grid grid-cols-2 sm:grid-cols-2 gap-4">
-              <div className="bg-[#1f1f1f] rounded-xl p-4">
+            <div className="grid grid-cols-2 gap-4">
+
+              <div
+                className={`rounded-xl p-4 ${darkMode
+                  ? "bg-[#1f1f1f]"
+                  : "bg-gray-200"
+                  }`}
+              >
                 <p className="text-2xl sm:text-3xl font-bold">
                   {streak}
                 </p>
-
                 <p className="text-sm text-gray-400">
                   Streak
                 </p>
               </div>
 
-              <div className="bg-[#1f1f1f] rounded-xl p-4">
+              <div
+                className={`rounded-xl p-4 ${darkMode
+                  ? "bg-[#1f1f1f]"
+                  : "bg-gray-200"
+                  }`}
+              >
                 <p className="text-2xl sm:text-3xl font-bold">
                   {bestStreak}
                 </p>
-
                 <p className="text-sm text-gray-400">
                   Best
                 </p>
               </div>
 
-              <div className="bg-[#1f1f1f] rounded-xl p-4">
+              <div
+                className={`rounded-xl p-4 ${darkMode
+                  ? "bg-[#1f1f1f]"
+                  : "bg-gray-200"
+                  }`}
+              >
                 <p className="text-2xl sm:text-3xl font-bold">
                   {gamesPlayed}
                 </p>
-
                 <p className="text-sm text-gray-400">
                   Played
                 </p>
               </div>
 
-              <div className="bg-[#1f1f1f] rounded-xl p-4">
+              <div
+                className={`rounded-xl p-4 ${darkMode
+                  ? "bg-[#1f1f1f]"
+                  : "bg-gray-200"
+                  }`}
+              >
                 <p className="text-2xl sm:text-3xl font-bold">
                   {wins}
                 </p>
-
                 <p className="text-sm text-gray-400">
                   Wins
                 </p>
               </div>
 
-              <div className="bg-[#1f1f1f] rounded-xl p-4">
+              <div
+                className={`rounded-xl p-4 ${darkMode
+                  ? "bg-[#1f1f1f]"
+                  : "bg-gray-200"
+                  }`}
+              >
                 <p className="text-2xl sm:text-3xl font-bold">
                   {losses}
                 </p>
-
                 <p className="text-sm text-gray-400">
                   Losses
                 </p>
               </div>
 
-              <div className="bg-[#1f1f1f] rounded-xl p-4">
+              <div
+                className={`rounded-xl p-4 ${darkMode
+                  ? "bg-[#1f1f1f]"
+                  : "bg-gray-200"
+                  }`}
+              >
                 <p className="text-2xl sm:text-3xl font-bold">
                   {gamesPlayed
                     ? Math.round((wins / gamesPlayed) * 100)
@@ -422,6 +500,7 @@ export default function Home() {
             </div>
 
             <div className="mt-8 flex gap-3">
+
               <button
                 onClick={shareScore}
                 className="bg-blue-600 hover:bg-blue-500 px-5 py-3 rounded-xl text-sm font-bold transition cursor-pointer"
@@ -458,7 +537,6 @@ export default function Home() {
             </div>
 
           </div>
-
         </div>
       )}
 
@@ -502,7 +580,11 @@ export default function Home() {
               <button
                 key={key}
                 onClick={() => handleKeyPress(key)}
-                className={`${keyColors[key] || "bg-gray-700"} hover:opacity-80 w-8 sm:w-12 h-11 sm:h-14 rounded font-bold text-xs sm:text-base cursor-pointer transition-all flex items-center justify-center`}
+                className={`${keyColors[key] ||
+                  (darkMode
+                    ? "bg-gray-700 text-white"
+                    : "bg-gray-300 text-black")
+                  } hover:opacity-80 w-8 sm:w-12 h-11 sm:h-14 rounded font-bold text-xs sm:text-base cursor-pointer transition-all flex items-center justify-center`}
               >
                 {key}
               </button>
@@ -528,7 +610,10 @@ export default function Home() {
           </div>
         ))}
       </div>
-      <section className="max-w-4xl mx-auto px-4 py-12 text-gray-300">
+      <section
+        className={`max-w-4xl mx-auto px-4 py-12 ${darkMode ? "text-gray-300" : "text-gray-700"
+          }`}
+      >
 
         <h2 className="text-3xl font-bold text-center mb-6">
           Play Wordle Unlimited Online
